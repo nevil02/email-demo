@@ -38,21 +38,16 @@ router.get("/user/mails", async (req, res) => {
 });
 
 router.post('/user/mails', async (req, res) => {
-    console.log("1");
     try {
         const senderEmailId = req.body.senderEmailId;
         const receiverEmailId = req.body.receiverEmailId;
         const message = req.body.message;
 
         const receiver = await User.findOne({ emailId: receiverEmailId });
-        console.log("2");
 
         if (!receiver) {
-            console.log("3");
             return res.status(404).send("Receiver not found!!");
         }
-
-        console.log("4");
 
         const email = new Email({
             senderEmailId: senderEmailId,
@@ -60,13 +55,10 @@ router.post('/user/mails', async (req, res) => {
             message: message,
             status: false
         });
-        console.log("5");
 
         await email.save();
-        console.log("6");
 
         res.status(200).send("Message sent");
-
     } catch (e) {
         res.status(500).send(e.message);
     }
