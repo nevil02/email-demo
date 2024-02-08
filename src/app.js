@@ -253,7 +253,7 @@ const guideArr = [
     }
 ];
 
-app.get("guide", (req, res) => {
+app.get("/guide", (req, res) => {
     res.send(guideArr);
 });
 
