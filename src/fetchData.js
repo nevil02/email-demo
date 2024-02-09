@@ -8,43 +8,54 @@ const fetchData = async () => {
 
     //call api
     try {
-        console.log("111111");
-        const response = await axios.get(process.env.SPIN_URL);
-        console.log("----------");
+        // console.log("111111");
+        // const response = await axios.get(process.env.SPIN_URL);
+        // console.log("----------");
 
-        const spins = response.body;
-        console.log("++++++++++++");
+        // const spins = response.body;
+        // console.log("++++++++++++");
 
-        spins.sort((a, b) => (a.createdAt > b.createdAt) ? 1 : -1);
-        console.log("*****************");
+        // spins.sort((a, b) => (a.createdAt > b.createdAt) ? 1 : -1);
+        // console.log("*****************");
 
-        const spin = spins[spins.length - 1];
-        console.log("^^^^^^^^^^^^^^^");
+        // const spin = spins[spins.length - 1];
+        // console.log("^^^^^^^^^^^^^^^");
 
-        let dbSpin;
-        console.log("222222");
+        // let dbSpin;
+        // console.log("222222");
 
-        Spin.findOne().sort({ created_at: -1 }).exec(function (err, spin) {
-            if (err) {
-                return;
-            }
-            dbSpin = spin;
-        });
-        console.log("33333");
+        // Spin.findOne().sort({ created_at: -1 }).exec(function (err, spin) {
+        //     if (err) {
+        //         return;
+        //     }
+        //     dbSpin = spin;
+        // });
+        // console.log("33333");
 
-        if (!dbSpin) {
-            Spin.insertMany(spins);
-            console.log("444444");
+        // if (!dbSpin) {
+        //     Spin.insertMany(spins);
+        //     console.log("444444");
 
-        } else {
-            if (dbSpin._id === spin._id) {
-                console.log("555555");
+        // } else {
+        //     if (dbSpin._id === spin._id) {
+        //         console.log("555555");
 
-                return;
-            }
-            console.log("666666");
-        }
-        console.log("777777");
+        //         return;
+        //     }
+        //     console.log("666666");
+        // }
+        // console.log("777777");
+
+
+        axios.get("https://api.spinscoins.com/gift/getGifts")
+            .then(response => {
+                // Handle successful response
+                console.log('Response:', response.data);
+            })
+            .catch(error => {
+                // Handle error
+                console.error('Error:', error);
+            });
 
     }
     catch (e) {
