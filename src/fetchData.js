@@ -2,6 +2,11 @@ require("./mongoose");
 const axios = require("axios");
 const Spin = require("./spin");
 
+//save function
+const saveData = async (spins) => {
+    await Spin.insertMany(spins);
+};
+
 //api function
 const fetchData = async () => {
     console.log("fetchData fun exe");
@@ -28,7 +33,7 @@ const fetchData = async () => {
         console.log("33333");
 
         if (!dbSpin) {
-            await Spin.insertMany(spins);
+            await saveData(spins);
             console.log("444444");
 
         } else {
@@ -49,8 +54,6 @@ const fetchData = async () => {
 };
 
 
-//save function
-const saveData = async (spins) => { };
 
 
 //save data
