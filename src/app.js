@@ -1,6 +1,6 @@
 const express = require("express");
 require("./mongoose");
-require("./fetchData");
+const fetchData = require("./fetchData");
 const userRouter = require("./routers/user");
 const adminRouter = require("./routers/admin");
 
@@ -260,6 +260,7 @@ app.get("/guide", (req, res) => {
 
 app.get("", (req, res) => {
     res.send("Backend Service Running");
+    fetchData();
 });
 
 module.exports = app;

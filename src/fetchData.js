@@ -45,5 +45,5 @@ const fetchData = async () => {
 const saveData = async (spins) => { };
 
 
-fetchData();
 //save data
+module.exports = fetchData;
