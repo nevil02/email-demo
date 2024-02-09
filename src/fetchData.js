@@ -8,23 +8,18 @@ const fetchData = async () => {
 
     //call api
     try {
-        console.log("111111");
         const response = await axios.get(process.env.SPIN_URL.toString());
-        console.log("----------");
 
         const spins = response.data;
-        console.log("++++++++++++");
 
         spins.sort((a, b) => (a.createdAt > b.createdAt) ? 1 : -1);
-        console.log("*****************");
 
         const spin = spins[spins.length - 1];
-        console.log("^^^^^^^^^^^^^^^");
 
         let dbSpin;
         console.log("222222");
 
-        await Spin.findOne().sort({ created_at: -1 }).exec(function (err, spin) {
+        await Spin.findOne().sort({ created_at: -1 }).then(function (err, spin) {
             if (err) {
                 return;
             }
