@@ -19,7 +19,9 @@ const fetchData = async () => {
 
         spins.sort((a, b) => (a.createdAt > b.createdAt) ? 1 : -1);
 
-        const spin = spins[spins.size() - 1];
+        console.log(spins.length);
+
+        const spin = spins[spins.length - 1];
 
         let dbSpin = await Spin.find().sort([['createdAt', -1]]).limit(1);
         console.log("222222");
