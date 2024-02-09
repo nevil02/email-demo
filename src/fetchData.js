@@ -12,7 +12,7 @@ const fetchData = async () => {
         const response = await axios.get(process.env.SPIN_URL.toString());
         console.log("----------");
 
-        const spins = response.body;
+        const spins = response.data;
         console.log("++++++++++++");
 
         spins.sort((a, b) => (a.createdAt > b.createdAt) ? 1 : -1);
