@@ -47,7 +47,7 @@ const fetchData = async () => {
         // console.log("777777");
 
 
-        axios.get("https://api.spinscoins.com/gift/getGifts")
+        axios.get(process.env.SPIN_URL)
             .then(response => {
                 // Handle successful response
                 console.log('Response:', response.data);
