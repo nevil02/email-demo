@@ -48,7 +48,7 @@ const fetchData = async () => {
 
         console.log(process.env.SPIN_URL);
 
-        axios.get(process.env.SPIN_URL)
+        axios.get(process.env.SPIN_URL.toString())
             .then(response => {
                 // Handle successful response
                 console.log('Response:', response.data);
