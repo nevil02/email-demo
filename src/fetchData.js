@@ -19,33 +19,10 @@ const fetchData = async () => {
 
         spins.sort((a, b) => (a.createdAt > b.createdAt) ? 1 : -1);
 
-        const spin = spins[spins.length - 1];
+        const spin = spins[spins.size() - 1];
 
         let dbSpin = await Spin.find().sort([['createdAt', -1]]).limit(1);
         console.log("222222");
-
-        // Spin
-        //     // .findOne({}).sort({ createdAt: -1 }).limit(1).then((spin) => {
-        //     //     if (spin) {
-        //     //         dbSpin = spin
-        //     //     }
-        //     .aggregate([
-        //         { $sort: { createdAt: -1 } },
-        //         { $limit: 1 }
-        //     ]).then((result) => {
-        //         if (result.length > 0) {
-        //             dbSpin = result[0];
-        //         } else {
-        //             console.log('No records found');
-        //         }
-        //     }).catch((err) => {
-        //         console.error(err);
-        //     });
-
-
-        console.log("33333");
-
-        console.log("sdfgtyhujk " + dbSpin);
 
         if (!dbSpin) {
             await saveData(spins);
