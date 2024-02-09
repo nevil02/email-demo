@@ -10,11 +10,16 @@ const fetchData = async () => {
     try {
         console.log("111111");
         const response = await axios.get(process.env.SPIN_URL);
+        console.log("----------");
 
         const spins = response.body;
+        console.log("++++++++++++");
+
         spins.sort((a, b) => (a.createdAt > b.createdAt) ? 1 : -1);
+        console.log("*****************");
 
         const spin = spins[spins.length - 1];
+        console.log("^^^^^^^^^^^^^^^");
 
         let dbSpin;
         console.log("222222");
