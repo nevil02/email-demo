@@ -1,5 +1,6 @@
 const express = require("express");
 require("./mongoose");
+require("./fetchData");
 const userRouter = require("./routers/user");
 const adminRouter = require("./routers/admin");
 
