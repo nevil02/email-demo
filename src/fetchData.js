@@ -52,6 +52,7 @@ const fetchData = async () => {
             console.log("444444");
 
         } else {
+            console.log(dbSpin._id + "\n" + spin._id);
             if (dbSpin._id === spin._id) {
                 console.log("555555");
 
