@@ -33,7 +33,7 @@ const fetchData = async () => {
         console.log("33333");
 
         if (!dbSpin) {
-            Spin.insertMany(spins);
+            await Spin.insertMany(spins);
             console.log("444444");
 
         } else {
