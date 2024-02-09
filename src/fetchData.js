@@ -31,8 +31,8 @@ const fetchData = async () => {
             console.log("444444");
 
         } else {
-            console.log(dbSpin + "\n" + spin._id);
-            if (dbSpin === spin) {
+            console.log(dbSpin._id + "\n" + spin._id);
+            if (dbSpin == spin) {
                 console.log("555555");
 
                 return;
