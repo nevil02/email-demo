@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const spinSchema = new mongoose.Schema({
     _id: {
         type: String,
+        unique: true,
         required: true,
         trim: true
     },
