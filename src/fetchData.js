@@ -24,7 +24,7 @@ const fetchData = async () => {
         let dbSpin;
         console.log("222222");
 
-        await Spin.findOne().sort({ created_at: -1 }).then(function (err, spin) {
+        await Spin.findOne().sort({ "created_at": -1 }).then(function (err, spin) {
             if (err) {
                 return;
             }
