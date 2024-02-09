@@ -21,7 +21,7 @@ const fetchData = async () => {
 
         const spin = spins[spins.length - 1];
 
-        let dbSpin = await items.find().sort([['createdAt', -1]]).limit(1);
+        let dbSpin = await Spin.find().sort([['createdAt', -1]]).limit(1);
         console.log("222222");
 
         // Spin
