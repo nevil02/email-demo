@@ -24,14 +24,12 @@ const fetchData = async () => {
         let dbSpin;
         console.log("222222");
 
-        await Spin.findOne().sort({ "created_at": -1 }).then(function (err, spin) {
-            if (err) {
-                return;
+        Spin.findOne({}).sort({ createdAt: -1 }).then((spin) => {
+            if (spin) {
+                dbSpin = spin
             }
-
-            console.log(spin);
-
-            dbSpin = spin;
+        }).catch((err) => {
+            console.error(err);
         });
         console.log("33333");
 
