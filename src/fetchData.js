@@ -21,26 +21,28 @@ const fetchData = async () => {
 
         const spin = spins[spins.length - 1];
 
-        let dbSpin;
+        let dbSpin = await items.find().sort([['createdAt', -1]]).limit(1);
         console.log("222222");
 
-        Spin
-            // .findOne({}).sort({ createdAt: -1 }).limit(1).then((spin) => {
-            //     if (spin) {
-            //         dbSpin = spin
-            //     }
-            .aggregate([
-                { $sort: { createdAt: -1 } },
-                { $limit: 1 }
-            ]).then((result) => {
-                if (result.length > 0) {
-                    dbSpin = result[0];
-                } else {
-                    console.log('No records found');
-                }
-            }).catch((err) => {
-                console.error(err);
-            });
+        // Spin
+        //     // .findOne({}).sort({ createdAt: -1 }).limit(1).then((spin) => {
+        //     //     if (spin) {
+        //     //         dbSpin = spin
+        //     //     }
+        //     .aggregate([
+        //         { $sort: { createdAt: -1 } },
+        //         { $limit: 1 }
+        //     ]).then((result) => {
+        //         if (result.length > 0) {
+        //             dbSpin = result[0];
+        //         } else {
+        //             console.log('No records found');
+        //         }
+        //     }).catch((err) => {
+        //         console.error(err);
+        //     });
+
+
         console.log("33333");
 
         console.log("sdfgtyhujk " + dbSpin);
