@@ -33,7 +33,7 @@ const fetchData = async () => {
         });
         console.log("33333");
 
-
+        console.log("sdfgtyhujk " + dbSpin);
 
         if (!dbSpin) {
             await saveData(spins);
