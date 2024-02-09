@@ -2,14 +2,13 @@ require("./mongoose");
 const axios = require("axios");
 const Spin = require("./spin");
 
-console.log("fetchData file exe");
-
 //api function
 const fetchData = async () => {
     console.log("fetchData fun exe");
 
     //call api
     try {
+        console.log("111111");
         const response = await axios.get(process.env.SPIN_URL);
 
         const spins = response.body;
@@ -18,6 +17,7 @@ const fetchData = async () => {
         const spin = spins[spins.length - 1];
 
         let dbSpin;
+        console.log("222222");
 
         Spin.findOne().sort({ created_at: -1 }).exec(function (err, spin) {
             if (err) {
@@ -25,18 +25,27 @@ const fetchData = async () => {
             }
             dbSpin = spin;
         });
+        console.log("33333");
 
         if (!dbSpin) {
             Spin.insertMany(spins);
+            console.log("444444");
+
         } else {
             if (dbSpin._id === spin._id) {
+                console.log("555555");
+
                 return;
             }
-            console.log("asdfff");
+            console.log("666666");
         }
+        console.log("777777");
+
     }
     catch (e) {
         console.log(e.message);
+        console.log("888888");
+
     }
 };
 
