@@ -46,9 +46,9 @@ const fetchData = async () => {
                 }
                 console.log("777777");
             })
-            .catch(e){
-            console.log(e);
-        };
+            .catch(() => {
+                console.log(e)
+            });
         console.log("----------");
 
 
