@@ -1,10 +1,13 @@
 require("./mongoose");
-const mongoose = require("mongoose");
 const axios = require("axios");
 const Spin = require("./spin");
 
+console.log("fetchData file exe");
+
 //api function
 const fetchData = async () => {
+    console.log("fetchData fun exe");
+
     //call api
     try {
         const response = await axios.get(process.env.SPIN_URL);
